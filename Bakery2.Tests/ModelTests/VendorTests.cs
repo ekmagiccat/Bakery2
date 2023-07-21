@@ -8,14 +8,24 @@ namespace Bakery2.Tests
     [TestClass]
     public class VendorTests
     {
-
-        Vendor _instanceofVendor = new Vendor();
-
         [TestMethod]
         public void VendorConstructor_CreatesNewVendor()
         {
-            Vendor newVendor = new Vendor();
+            Vendor newVendor = new Vendor("Eva's Cafe", "Vendor Description", 1);
             Assert.AreEqual(typeof(Vendor), newVendor.GetType());
+        }
+
+        [TestMethod]
+        public void GetDescription_ReturnsVendorDescription()
+        {
+            string vendorName = "Eva's Cafe";
+            string vendorDescription = "Vendor Description";
+            int vendorId = 1;
+
+            Vendor newVendor = new Vendor(vendorName, vendorDescription, vendorId);
+            string result = newVendor.VendorName;
+
+            Assert.AreEqual(vendorDescription, result);
         }
     }
 }
