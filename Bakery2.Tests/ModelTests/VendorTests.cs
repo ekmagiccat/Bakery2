@@ -43,7 +43,7 @@ namespace Bakery2.Tests
             string result = newVendor.VendorDescription;
 
 
-            Assert.AreEqual(vendorDescription, result);
+            Assert.AreEqual(updatedDescription, result);
         }
     }
 }
