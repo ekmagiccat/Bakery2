@@ -6,17 +6,16 @@ using System;
 namespace Bakery2.Tests
 {
     [TestClass]
-    public class VendorTests : IDisposable
+    public class VendorTests
     {
 
-        public void Dispose()
-        {
-            Vendor.ClearAll();
-        }
+        Vendor _instanceofVendor = new Vendor();
+
         [TestMethod]
         public void VendorConstructor_CreatesNewVendor()
         {
-
+            Vendor newVendor = new Vendor();
+            Assert.AreEqual(typeof(Vendor), newVendor.GetType());
         }
     }
 }
