@@ -23,7 +23,7 @@ namespace Bakery2.Tests
             int vendorId = 1;
 
             Vendor newVendor = new Vendor(vendorName, vendorDescription, vendorId);
-            string result = newVendor.VendorName;
+            string result = newVendor.VendorDescription;
 
             Assert.AreEqual(vendorDescription, result);
         }
