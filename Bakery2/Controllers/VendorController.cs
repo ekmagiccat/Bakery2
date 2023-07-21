@@ -10,8 +10,8 @@ namespace Bakery2.Models
         [HttpGet("/vendors")]
         public ActionResult Index()
         {
-            List<Vendor> allVendors = Vendor.GetAll();
-            return View(allVendors);
+            List<Vendor> VendorList = Vendor.GetAll();
+            return View(VendorList);
         }
 
         [HttpGet("/vendors/new")]

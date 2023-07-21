@@ -4,34 +4,48 @@ namespace Bakery2.Models
 {
     public class Vendor
     {
+        public static Dictionary<string, Vendor> Lists { get; } = new Dictionary<string, Vendor>();
+
         public string VendorName { get; set; }
         public string VendorDescription { get; set; }
-
         public int Id { get; set; }
-        private static List<Vendor> _instances = new List<Vendor> { };
+
+        public Dictionary<string, List<Order>> Orders { get; } = new Dictionary<string, List<Order>>();
 
         public Vendor(string vendorName, string vendorDescription, int id)
         {
             VendorName = vendorName;
             VendorDescription = vendorDescription;
-            _instances.Add(this);
+            Lists.Add(vendorName, this);
             Id = id;
+        }
+
+        public void AddOrder(string vendorName, Order order)
+        {
+            if (Orders.ContainsKey(vendorName))
+            {
+                Orders[vendorName].Add(order);
+            }
+            else
+            {
+                Orders[vendorName] = new List<Order> { order };
+            }
         }
 
         public static List<Vendor> GetAll()
         {
-            return _instances;
+            return new List<Vendor>(Lists.Values);
         }
     }
+}
 
 
 
-    public class Order
-    {
-        public string OrderTitle { get; set; }
-        public string OrderDescription { get; set; }
-        public int Price { get; set; }
-        public int Date { get; set; }
+public class Order
+{
+    public string OrderTitle { get; set; }
+    public string OrderDescription { get; set; }
+    public double Price { get; set; }
+    public int Date { get; set; }
 
-    }
 }
