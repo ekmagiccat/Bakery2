@@ -38,7 +38,7 @@ namespace Bakery2.Tests
             Vendor newVendor = new Vendor(vendorName, vendorDescription, vendorId);
 
 
-            string updatedDescription = "Do the dishes";
+            string updatedDescription = "Newly updated";
             newVendor.VendorDescription = updatedDescription;
             string result = newVendor.VendorDescription;
 
