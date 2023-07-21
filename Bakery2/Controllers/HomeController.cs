@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace ToDoList.Controllers
+namespace Bakery2.Controllers
 {
     public class HomeController : Controller
     {
