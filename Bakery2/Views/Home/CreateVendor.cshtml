@@ -11,10 +11,21 @@
        <link rel="stylesheet" type="text/css" href="~/css/styles.css">
   </head>
   <body>
-      <form action="/vendors" method="post">
-      <label for="description">Request to become a vendor of Pierre's fine baked goods!</label>
-      <input id="description" name="description" type="text">
-      <button type="submit">Request</button>
+<h1>Your vendor profile @Model.VendorName was successfully created!</h1>
+<h2>You may begin placing an order below:</h2>
+<form action="/vendorList/@Model.VendorName/NewOrder" method="post">
+      <label for="orderTitle">Order title:</label>
+       <input id="orderTitle" name="orderTitle" type="text">
+
+      <label for="orderTitle">Order Description:</label>
+      <input id="orderDescription" name="orderDescription" type="text">
+   
+      <label for="orderPrice">Order price:</label>
+      <input id="orderPrice" name="orderPrice" type="number">
+
+      <label for="orderDate">Date of pickup:</label>
+      <input id="orderDate" name="orderDate" type="text">
+    
     </form>
   </body>
 </html>
