@@ -8,12 +8,20 @@
       rel="stylesheet" 
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" 
       crossorigin="anonymous">
-       <link rel="stylesheet" type="text/css" href="~/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="~/css/styles.css">
   </head>
-    <body>
-    <h1>Your vendor profile @Model.VendorName was successfully created!</h1>
+  <body>
+    <h1>Vendor profile @Model.VendorName, @Model.VendorDescription was successfully created!</h1>
+    <h3>Current orders:</h3>
+    <ol>
+        @foreach (var order in Model.Orders)
+        {
+            <li><a href='/vendors/@Model.Id/orders/@order.OrderId'>@order.OrderTitle</a></li>
+        }
+    </ol>
     <br>
-   <a href='/orders/new'>Place an order</a>
-  <br> 
-<a href='/'>Return to homepage</a>
-</body>
+    <a href='/orders/new'>Place an order</a>
+    <br> 
+    <a href='/'>Return to homepage</a>
+  </body>
+</html>

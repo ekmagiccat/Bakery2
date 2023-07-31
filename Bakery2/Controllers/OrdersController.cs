@@ -1,8 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System;
+using Bakery2.Models;
 
-namespace Bakery2.Models
+namespace Bakery2.Controllers
 {
     public class OrdersController : Controller
     {
@@ -27,7 +28,7 @@ namespace Bakery2.Models
 
             _orders.Add(newOrder);
 
-            return RedirectToAction("NewOrder");
+            return RedirectToAction("ShowOrder");
         }
     }
 }

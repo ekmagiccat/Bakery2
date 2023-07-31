@@ -21,14 +21,14 @@
       @foreach (Vendor vendor in Model) 
       {
        
-        <li>@vendor.VendorName - @vendor.VendorDescription</li>
+        <li><a href='/vendors/@vendor.Id'>@vendor.VendorName - @vendor.VendorDescription</a></li>
        
       }
     </ul>
 
-  <a href='/vendors/new'>Become a vendor of Pierre's Bakery</a>
+  <a href='/vendors/new'>Create a new vendor profile</a>
   <br>
-  Already a vendor? <a href='/orders/new'>Place an order!</a>
+  Already created a vendor profile? <a href='/orders/new'>Place an order!</a>
    <br>
    <a href='/'>Return to homepage</a>
   </body>

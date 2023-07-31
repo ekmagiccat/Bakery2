@@ -1,16 +1,19 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using Bakery2.Models;
+using System;
 
-namespace Bakery2.Models
+namespace Bakery2.Controllers
 {
     public class VendorsController : Controller
     {
+        private static List<Vendor> _vendors = new List<Vendor>();
 
         [HttpGet("/vendors")]
         public ActionResult Index()
         {
-            List<Vendor> VendorList = Vendor.GetAll();
-            return View(VendorList);
+            List<Vendor> vendorList = Vendor.GetAll();
+            return View(vendorList);
         }
 
         [HttpGet("/vendors/new")]
@@ -25,6 +28,5 @@ namespace Bakery2.Models
             Vendor myVendor = new Vendor(vendorName, vendorDescription, id);
             return RedirectToAction("Index");
         }
-
     }
 }
