@@ -1,30 +1,36 @@
-# (Application Name)
+# Pierre's Bakery #2
 
-#### (Brief Description of Application)
-
-#### By (Your Name Here)
+#### By Eva Kemp
 
 ## Technologies Used
 
-- _List all_
-- _the major technologies_
-- _you used in your project_
-- _here_
+- C#
+- .NET
+- Razor
+- Git
 
 ## Description
 
+This is an application using C# that allows users to see a main page for Pierre's Bakery, a list of current vendors, apply to become a vendor and place orders via the website.
+
 ## Setup/Installation Requirements
 
-- _This is a great place_
-- _to list setup instructions_
-- _in a simple_
-- _easy-to-understand_
-- _format_
+- Clone the repository from GitHub by navigating to the main page of the repository.
+- Above the list of files on the repository, click "Code".
+- Then click "Download ZIP".
+- After downloading, open the file in VS Code.
+- Navigate to the project's production directory called "Bakery2" using the command `cd Bakery2` in the command line.
+- Run `dotnet build` to compile the app.
+- Then, run the command `dotnet watch run` to start the application in your browser.
+
+### To run tests
+
+- Navigate to the `Bakery.Tests` directory
+- In the command line, run the command `dotnet test`
 
 ## Known Bugs
 
-- _Any known issues_
-- _should go here_
+- None known
 
 ## License
 
