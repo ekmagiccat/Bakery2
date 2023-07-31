@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Bakery2.Models
 {
-    public class VendorController : Controller
+    public class VendorsController : Controller
     {
 
         [HttpGet("/vendors")]
@@ -14,12 +14,12 @@ namespace Bakery2.Models
         }
 
         [HttpGet("/vendors/new")]
-        public ActionResult CreateForm()
+        public ActionResult NewVendor()
         {
             return View();
         }
 
-        [HttpPost("/vendors")]
+        [HttpPost("/vendors/new")]
         public ActionResult Create(string vendorName, string vendorDescription, int id)
         {
             Vendor myVendor = new Vendor(vendorName, vendorDescription, id);
