@@ -11,6 +11,14 @@
     <link rel="stylesheet" type="text/css" href="~/css/styles.css">
   </head>
   <body>
+    <h1>Order Details:</h1>
+
+<h3>@Model["orders"].OrderTitle</h3>
+<h4>@Model["orders"].OrderDescription</h4>
+<h3>$@Model["orders"].Price</h3>
+<h3>@Model["orders"].Date</h3>
+
+<p><a href='/vendors/@Model["vendor"].Id/orders/new'>Add Order</a></p>
 <a href='/'>Return to homepage</a>
   </body>
 </html>
