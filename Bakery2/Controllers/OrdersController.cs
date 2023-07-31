@@ -1,15 +1,34 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System;
 
 namespace Bakery2.Models
 {
     public class OrdersController : Controller
     {
-        [HttpGet("/orders")]
-        public ActionResult Index()
+        private static List<Order> _orders = new List<Order>();
+
+        [HttpGet("/orders/new")]
+        public ActionResult NewOrder()
         {
-            List<Vendor> VendorList = Vendor.GetAll();
-            return View(VendorList);
+            return View();
+        }
+
+        [HttpPost("/orders/new")]
+        public ActionResult CreateOrder(string orderTitle, string orderDescription, double price, DateTime date)
+        {
+            Order newOrder = new Order
+            {
+                OrderTitle = orderTitle,
+                OrderDescription = orderDescription,
+                Price = price,
+                Date = date
+            };
+
+            _orders.Add(newOrder);
+
+            return RedirectToAction("NewOrder");
         }
     }
 }
+
