@@ -4,37 +4,53 @@ namespace Bakery2.Models
 {
     public class Vendor
     {
-        public static Dictionary<string, Vendor> Lists { get; } = new Dictionary<string, Vendor>();
+        private static List<Vendor> _instances = new List<Vendor> { };
+        // public static Dictionary<string, Vendor> Lists { get; } = new Dictionary<string, Vendor>();
 
         public string VendorName { get; set; }
         public string VendorDescription { get; set; }
-        public int Id { get; set; }
+        public int Id { get; }
+        public List<Order> Orders { get; set; }
 
-        public Dictionary<string, List<Order>> Orders { get; } = new Dictionary<string, List<Order>>();
+        // public Dictionary<string, List<Order>> Orders { get; } = new Dictionary<string, List<Order>>();
 
-        public Vendor(string vendorName, string vendorDescription, int id)
+        public Vendor(string vendorName, string vendorDescription)
         {
             VendorName = vendorName;
             VendorDescription = vendorDescription;
-            Lists.Add(vendorName, this);
-            Id = id;
+            _instances.Add(this);
+            Id = _instances.Count;
+            Orders = new List<Order> { };
         }
 
-        public void AddOrder(string vendorName, Order order)
+        // public void AddOrder(string vendorName, Order order)
+        // {
+        //     if (Orders.ContainsKey(vendorName))
+        //     {
+        //         Orders[vendorName].Add(order);
+        //     }
+        //     else
+        //     {
+        //         Orders[vendorName] = new List<Order> { order };
+        //     }
+        // }
+
+        public static void ClearAll()
         {
-            if (Orders.ContainsKey(vendorName))
-            {
-                Orders[vendorName].Add(order);
-            }
-            else
-            {
-                Orders[vendorName] = new List<Order> { order };
-            }
+            _instances.Clear();
         }
 
         public static List<Vendor> GetAll()
         {
-            return new List<Vendor>(Lists.Values);
+            return _instances;
+        }
+        public static Vendor Find(int searchId)
+        {
+            return _instances[searchId - 1];
+        }
+        public void AddOrder(Order order)
+        {
+            Orders.Add(order);
         }
     }
 }
