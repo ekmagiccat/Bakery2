@@ -7,7 +7,6 @@ namespace Bakery2.Controllers
 {
     public class VendorsController : Controller
     {
-        // private static List<Vendor> _vendors = new List<Vendor>();
 
         [HttpGet("/vendors")]
         public ActionResult Index()
