@@ -94,5 +94,26 @@ namespace Bakery2.Tests
 
             Assert.AreEqual(newVendor2, result);
         }
+        [TestMethod]
+        public void AddOrder_AssociatesOrderWithVendor_OrderList()
+        {
+            string orderDescription = "Order Description";
+            string orderTitle = "Order title";
+            double price = 20.0;
+            DateTime date = new DateTime(2023, 8, 2, 12, 34, 56);
+
+
+            Order newOrder = new Order(orderDescription, orderTitle, price, date);
+            List<Order> newList = new List<Order> { newOrder };
+            string vendorName = "Eva's Cafe";
+            string vendorDescription = "Vendor Description";
+            Vendor newVendor = new Vendor(vendorName, vendorDescription);
+            newVendor.AddOrder(newOrder);
+
+            List<Order> result = newVendor.Orders;
+
+            CollectionAssert.AreEqual(newList, result);
+        }
+
     }
 }
