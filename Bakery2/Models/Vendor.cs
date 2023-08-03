@@ -5,14 +5,12 @@ namespace Bakery2.Models
     public class Vendor
     {
         private static List<Vendor> _instances = new List<Vendor> { };
-        // public static Dictionary<string, Vendor> Lists { get; } = new Dictionary<string, Vendor>();
+
 
         public string VendorName { get; set; }
         public string VendorDescription { get; set; }
         public int Id { get; }
         public List<Order> Orders { get; set; }
-
-        // public Dictionary<string, List<Order>> Orders { get; } = new Dictionary<string, List<Order>>();
 
         public Vendor(string vendorName, string vendorDescription)
         {
@@ -22,18 +20,6 @@ namespace Bakery2.Models
             Id = _instances.Count;
             Orders = new List<Order> { };
         }
-
-        // public void AddOrder(string vendorName, Order order)
-        // {
-        //     if (Orders.ContainsKey(vendorName))
-        //     {
-        //         Orders[vendorName].Add(order);
-        //     }
-        //     else
-        //     {
-        //         Orders[vendorName] = new List<Order> { order };
-        //     }
-        // }
 
         public static void ClearAll()
         {
