@@ -63,15 +63,36 @@ namespace Bakery2.Tests
 
         }
 
-        // [TestMethod]
-        // public void GetAll_()
-        // {
+        [TestMethod]
+        public void GetAll_ReturnsAllVendors_VendorList()
+        {
+            string vendorName = "Eva's Cafe";
+            string vendorName2 = "Talia's Diner";
+            string vendorDescription = "Vendor Description";
 
-        // }
-        // [TestMethod]
-        // public void Get_()
-        // {
+            Vendor newVendor1 = new Vendor(vendorName, vendorDescription);
+            Vendor newVendor2 = new Vendor(vendorName2, vendorDescription);
+            List<Vendor> newList = new List<Vendor> { newVendor1, newVendor2 };
 
-        // }
+            List<Vendor> result = Vendor.GetAll();
+
+            CollectionAssert.AreEqual(newList, result);
+        }
+
+        [TestMethod]
+        public void GetFind_ReturnsCorrectVendor_Vendor()
+        {
+
+            string vendorName = "Eva's Cafe";
+            string vendorName2 = "Talia's Diner";
+            string vendorDescription = "Vendor Description";
+
+            Vendor newVendor1 = new Vendor(vendorName, vendorDescription);
+            Vendor newVendor2 = new Vendor(vendorName2, vendorDescription);
+
+            Vendor result = Vendor.Find(2);
+
+            Assert.AreEqual(newVendor2, result);
+        }
     }
 }
