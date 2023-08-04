@@ -11,7 +11,7 @@
 
 ## Description
 
-This is an application using C# that allows users to see a main page for Pierre's Bakery, a list of current vendors, apply to become a vendor and place orders via the website.
+This is an application using C# that allows users to see a main page for Pierre's Bakery, a list of current vendors, create a vendor profile and place orders for each vendor.
 
 ## Setup/Installation Requirements
 

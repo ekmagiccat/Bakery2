@@ -10,12 +10,13 @@
     {
       <p>There are no current orders.</p>
     }
-    <ol>
+    <div class= "container"><ol>
         @foreach (Order order in Model["orders"])
         {
             <li><a href='/vendors/@Model["vendor"].Id/orders/@order.OrderId'>@order.OrderTitle</a></li>
         }
     </ol>
+    </div>
     <br>
     <a href='/vendors/@Model["vendor"].Id/orders/new'>Place an order</a>
     <br> 
